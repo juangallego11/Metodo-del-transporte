@@ -7,9 +7,9 @@
 package Transprte;
 
 
-import static Guis.GuiTransporte.datos;
-import static Guis.GuiTransporte.extraColumn;
-import static Guis.GuiTransporte.extraRow;
+import static Vistas.GuiTransporte.datos;
+import static Vistas.GuiTransporte.extraColumn;
+import static Vistas.GuiTransporte.extraRow;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JLabel;
@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
-import static Guis.GuiTransporte.repetidosNumeros;
+import static Vistas.GuiTransporte.repetidosNumeros;
 
 /**
  *

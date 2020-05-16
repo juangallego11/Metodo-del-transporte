@@ -7,8 +7,8 @@
 package CrearTablas;
 
 import Transprte.Datos;
-import static Guis.GuiTransporte.datos;
-import static Guis.GuiTransporte.modeloRestricciones;
+import static Vistas.GuiTransporte.datos;
+import static Vistas.GuiTransporte.modeloRestricciones;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 

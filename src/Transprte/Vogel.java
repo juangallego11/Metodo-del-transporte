@@ -6,10 +6,10 @@
 
 package Transprte;
 
-import static Guis.GuiTransporte.datos;
-import static Guis.GuiTransporte.corte;
-import static Guis.GuiTransporte.jDialog1;
-import static Guis.GuiTransporte.repetidosNumeros;
+import static Vistas.GuiTransporte.datos;
+import static Vistas.GuiTransporte.corte;
+import static Vistas.GuiTransporte.jDialog1;
+import static Vistas.GuiTransporte.repetidosNumeros;
 import java.util.ArrayList;
 import javax.swing.JTable;
 

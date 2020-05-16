@@ -6,7 +6,7 @@
 
 package Transprte; 
 
-import static Guis.GuiTransporte.datos;
+import static Vistas.GuiTransporte.datos;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
