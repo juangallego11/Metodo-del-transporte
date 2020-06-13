@@ -96,10 +96,6 @@ RssFeedCellRenderer Renderizar = new RssFeedCellRenderer();
         jButton3 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jckbPlanta = new javax.swing.JCheckBox();
-        jckbDestino = new javax.swing.JCheckBox();
-        jButton7 = new javax.swing.JButton();
         jDialog1 = new javax.swing.JDialog();
         jPanel6 = new javax.swing.JPanel();
         jRadioButton1 = new javax.swing.JRadioButton();
@@ -230,7 +226,7 @@ RssFeedCellRenderer Renderizar = new RssFeedCellRenderer();
         jPanel1.add(jcbMeto);
         jcbMeto.setBounds(20, 24, 160, 34);
 
-        jPanel8.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 10, 190, 80));
+        jPanel8.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 190, 80));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel5.setLayout(null);
@@ -270,38 +266,7 @@ RssFeedCellRenderer Renderizar = new RssFeedCellRenderer();
         jPanel5.add(jLabel6);
         jLabel6.setBounds(10, 10, 130, 30);
 
-        jPanel8.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 10, 250, 80));
-
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Ficticia"));
-        jPanel4.setLayout(null);
-
-        jckbPlanta.setText("Planta ");
-        jckbPlanta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jckbPlantaActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jckbPlanta);
-        jckbPlanta.setBounds(10, 15, 80, 30);
-
-        jckbDestino.setText("Destino");
-        jckbDestino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jckbDestinoActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jckbDestino);
-        jckbDestino.setBounds(10, 40, 80, 30);
-
-        jPanel8.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(477, 10, 100, 80));
-
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/compartiendo.png"))); // NOI18N
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        jPanel8.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, -1, 60));
+        jPanel8.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 250, 80));
 
         jFrame1.getContentPane().add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 650, 100));
 
@@ -325,7 +290,7 @@ RssFeedCellRenderer Renderizar = new RssFeedCellRenderer();
 
         jLabel3.setText("Posicion ");
         jPanel6.add(jLabel3);
-        jLabel3.setBounds(30, 90, 80, 15);
+        jLabel3.setBounds(30, 90, 80, 16);
 
         jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -599,8 +564,8 @@ RssFeedCellRenderer Renderizar = new RssFeedCellRenderer();
       destinos = Integer.parseInt(""+jspDestinos.getValue());
       origenes = Integer.parseInt(""+jspOrigen.getValue());
       new CrearTablaTransporte().crearTablaRestricciones(destinos, origenes, jtRestricciones,0); 
-      jckbPlanta.setSelected(false);
-      jckbDestino.setSelected(false);
+      //jckbPlanta.setSelected(false);
+      //jckbDestino.setSelected(false);
       artificialColumna= false;
       artificialFila = false;
       info2.setBackground(new Color(240,240,240));
@@ -714,97 +679,6 @@ RssFeedCellRenderer Renderizar = new RssFeedCellRenderer();
          jButton4.setEnabled(false);
          jButton5.setEnabled(false);
     }//GEN-LAST:event_jcbMetoActionPerformed
-
-    private void jckbPlantaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jckbPlantaActionPerformed
-      info2.setBackground(new Color(240,240,240));
-       info2.setText(null);
-        if(jckbDestino.isSelected()) eliminarColumna();
-          calcularDemandaOfretTotal(jtSolucion, 0, 0);
-       
-         jckbDestino.setSelected(false);
-        if(!jckbPlanta.isSelected()){
-           eliminaFila();
-        }
-        else{
-            agregarFila();
-        }
-        
-        
-    }//GEN-LAST:event_jckbPlantaActionPerformed
-
-    private void jckbDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jckbDestinoActionPerformed
-        info2.setBackground(new Color(240,240,240));
-         info2.setText(null);
-        if(jckbPlanta.isSelected()) eliminaFila();
-        calcularDemandaOfretTotal(jtRestricciones, 0, 0);
-          jckbPlanta.setSelected(false);
-        if(!jckbDestino.isSelected()){
-           eliminarColumna();
-        }
-        else{
-          agregarColumna();
-        }
-    }//GEN-LAST:event_jckbDestinoActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-       info2.setBackground(new Color(240,240,240));
-       info2.setText(null);
-        if(artificialColumna){
-           calcularDemandaOfretTotal(jtRestricciones, 0, 1);
-           modeloRestricciones.setValueAt((oferta-demanda), modeloRestricciones.getRowCount()-1, modeloRestricciones.getColumnCount()-2);
-           
-       }
-       else if (artificialFila){
-           calcularDemandaOfretTotal(jtRestricciones, 1, 0);
-           modeloRestricciones.setValueAt((oferta-demanda), modeloRestricciones.getRowCount()-2, modeloRestricciones.getColumnCount()-1);
-       }
-       else calcularDemandaOfretTotal(jtRestricciones, 0, 0);       
-       
-        if(oferta == demanda){
-            if(artificialFila){
-                eliminaFila();
-                artificialFila=false;
-                jckbPlanta.setSelected(false);
-            }
-            else if(artificialColumna){
-               eliminarColumna();
-               artificialColumna = false;
-               jckbDestino.setSelected(false);
-            }
-        }
-        else if(oferta!= demanda){
-            if(oferta>demanda && artificialFila){
-                eliminaFila();
-                artificialFila=false; 
-                jckbPlanta.setSelected(false);
-                agregarColumna();
-                artificialColumna= true;
-                jckbDestino.setSelected(true);
-            }
-            else  if(oferta<demanda && artificialColumna){
-                eliminarColumna();
-                artificialColumna = false;
-                jckbDestino.setSelected(false);
-                agregarFila();
-                artificialFila = true;
-                jckbPlanta.setSelected(true);
-            }
-            
-        }
-        if(!artificialColumna && !artificialFila){
-            if(oferta<demanda){
-                agregarFila();
-                artificialFila = true;
-                jckbPlanta.setSelected(true);
-            }
-            else  if(oferta>demanda){
-               agregarColumna();
-               artificialColumna= true;
-               jckbDestino.setSelected(true); 
-            }
-        }
-        
-    }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
       
@@ -1108,7 +982,6 @@ RssFeedCellRenderer Renderizar = new RssFeedCellRenderer();
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JCheckBox jCheckBox1;
     public static javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
@@ -1128,7 +1001,6 @@ RssFeedCellRenderer Renderizar = new RssFeedCellRenderer();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -1144,8 +1016,6 @@ RssFeedCellRenderer Renderizar = new RssFeedCellRenderer();
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JComboBox jcbMeto;
-    private javax.swing.JCheckBox jckbDestino;
-    private javax.swing.JCheckBox jckbPlanta;
     private javax.swing.JSpinner jspDestinos;
     private javax.swing.JSpinner jspOrigen;
     private javax.swing.JTable jtRestricciones;
